@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+:host button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #eb14ff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+:host button:hover {
+  background-color: #f569ff;
+}

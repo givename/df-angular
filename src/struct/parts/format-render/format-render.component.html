@@ -1,0 +1,25 @@
+@for (elm of format; track elm.id) {
+<div [ngSwitch]="elm.type">
+  <form-header
+    *ngSwitchCase="'header'"
+    id="{{ elm.id }}"
+    [props]="elm.props"
+  ></form-header>
+  <form-input
+    *ngSwitchCase="'input'"
+    id="{{ elm.id }}"
+    [props]="elm.props"
+  ></form-input>
+  <form-button
+    *ngSwitchCase="'button'"
+    id="{{ elm.id }}"
+    [props]="elm.props"
+  ></form-button>
+  <form-container
+    *ngSwitchCase="'container'"
+    id="{{ elm.id }}"
+    [props]="elm.props"
+  ></form-container>
+  <br />
+</div>
+}

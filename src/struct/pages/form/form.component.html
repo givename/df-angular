@@ -1,0 +1,61 @@
+<!-- Controller -->
+<ui-container title="Отладка">
+  <ui-button
+    label="Включить отображение примера компонентов"
+    (onClick)="onClickVisibleDebugSwitch()"
+  />
+  <br />
+  <ui-button
+    label="Включить отображение примера angular приколов"
+    (onClick)="onClickVisibleDebugAngularFeature()"
+  />
+</ui-container>
+<br />
+
+<!-- Psevdo storybook -->
+@if (visibleDebugNoStorybook) {
+<ui-container title="Тест компонентов [Not Storybook]">
+  <ui-header title="Header:" type="left" />
+  <ui-test-testspace>
+    <ui-header title="Содержимое" />
+    <ui-header title="Содержимое" type="left" />
+    <ui-header title="Содержимое" type="right" />
+  </ui-test-testspace>
+
+  <ui-header title="Container:" type="left" />
+  <ui-test-testspace>
+    <ui-container title="Component: `Header`"> Any Elements </ui-container>
+  </ui-test-testspace>
+
+  <ui-header title="input:" type="left" />
+  <ui-test-testspace>
+    <ui-input placeholder="Enter your text" />
+  </ui-test-testspace>
+
+  <ui-header title="Button:" type="left" />
+  <ui-test-testspace>
+    <ui-button label="Test Button" (onClick)="onClickTestComponentButton()" />
+  </ui-test-testspace>
+</ui-container>
+<br />
+}
+
+<!-- Angular feature -->
+@if (visibleDebugAngularFeature) {
+<ui-container title="Тест angular feature">
+  <ui-header title="@for" type="left" />
+  <ui-test-testspace>
+    @for (os of operatingSystems; track os.id) {
+    <h2>{{ os.name }} // {{ os.index * 2 }}</h2>
+    }
+  </ui-test-testspace>
+</ui-container>
+<br />
+}
+
+<!-- Root -->
+<header>
+  <ui-container title="Root">
+    <blocks-format-render [format]="form.format" />
+  </ui-container>
+</header>

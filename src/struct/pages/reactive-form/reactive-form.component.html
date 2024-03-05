@@ -1,0 +1,22 @@
+<form [formGroup]="favoriteOsControl" (ngSubmit)="onSubmit()">
+  <label for="os-type">OS type: </label>
+  <input id="os-type" type="text" formControlName="os" />
+
+  <label for="os-version">OS version: </label>
+  <input id="os-version" type="number" formControlName="version" />
+
+  <div formGroupName="hardware">
+    <label for="hardware-cpu">Hardware CPU: </label>
+    <input id="hardware-cpu" type="text" formControlName="cpu" />
+
+    <label for="hardware-ram">Hardware RAM: </label>
+    <input id="hardware-ram" type="text" formControlName="ram" />
+  </div>
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!favoriteOsControl.valid">Submit</button>
+</form>
+
+<br />
+<button type="button" (click)="onButtonClick()">Некоторое случайное событие</button>
+

@@ -1,0 +1,6 @@
+:host {
+  display: block;
+}
+.error {
+  border: solid 1px red;
+}

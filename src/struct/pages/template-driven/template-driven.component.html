@@ -1,0 +1,28 @@
+<form #registrationForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="username"
+      required
+    />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+      [class.error]="
+        registrationForm.controls['password']?.touched &&
+        registrationForm.controls['password']?.invalid
+      "
+      [(ngModel)]="password"
+      required
+    />
+  </div>
+  <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
+</form>
